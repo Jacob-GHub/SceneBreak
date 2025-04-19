@@ -15,6 +15,8 @@ export default function Home() {
     }
   };
 
+  const apiKey = process.env.NEXT_PUBLIC_API_KEY; // Access the API key
+
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-6">
       <h1 className="text-2xl font-bold mb-4">Upload an Image or Video</h1>
@@ -42,7 +44,9 @@ export default function Home() {
           )}
         </div>
       )}
-      <AI_Analizer file={file} />
+
+      {/* Pass the file and API key to AI_Analizer */}
+      <AI_Analizer file={file} apiKey={apiKey} />
     </div>
   );
 }

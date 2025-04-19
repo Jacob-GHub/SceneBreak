@@ -4,9 +4,10 @@ import { useState } from "react";
 
 interface AIAnalizerProps {
   file: File | null;
+  apiKey: string | undefined; // Accept the API key as a prop
 }
 
-export default function AI_Analizer({ file }: AIAnalizerProps) {
+export default function AI_Analizer({ file, apiKey }: AIAnalizerProps) {
   const [apiResponse, setApiResponse] = useState<string | null>(null);
 
   const handleApiCall = async () => {
@@ -17,7 +18,7 @@ export default function AI_Analizer({ file }: AIAnalizerProps) {
 
     try {
       const response = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyDIkgVbHH8MQjLoOyHOZGwuo8w-A2nzeDk`,
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`,
         {
           method: "POST",
           headers: {
