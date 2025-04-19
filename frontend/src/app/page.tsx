@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import AI_Analizer from "./AI_Analizer";
 
 export default function Home() {
   const [file, setFile] = useState<File | null>(null);
@@ -13,6 +14,8 @@ export default function Home() {
       setPreviewUrl(URL.createObjectURL(selectedFile));
     }
   };
+
+  const apiKey = process.env.NEXT_PUBLIC_API_KEY; // Access the API key
 
   return (
     <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-6">
@@ -41,6 +44,9 @@ export default function Home() {
           )}
         </div>
       )}
+
+      {/* Pass the file and API key to AI_Analizer */}
+      <AI_Analizer file={file} apiKey={apiKey} />
     </div>
   );
 }
