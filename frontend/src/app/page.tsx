@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import AI_Analizer from "./AI_Analizer";
 
 export default function Home() {
   const [file, setFile] = useState<File | null>(null);
@@ -41,6 +42,7 @@ export default function Home() {
           )}
         </div>
       )}
+      <AI_Analizer file={file} />
     </div>
   );
 }
