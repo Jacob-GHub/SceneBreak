@@ -39,7 +39,7 @@ export default function FileUpload() {
       const data = await res.json();
       setResponse(data.message);
     } catch (err) {
-      console.error("Error during file processing:", err);
+      console.error("Error during file processing: ", err);
       setResponse("An error occurred while processing the image.");
     } finally {
       setLoading(false);
